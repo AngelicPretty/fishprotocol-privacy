@@ -1,136 +1,343 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy | Cyberpunk Theme for KLWP</title>
   <style>
-    body {
-      background: #151515;
-      color: #eeeeee;
-      font: 16px/1.8 system-ui, sans-serif;
-      max-width: 760px;
-      margin: 40px auto;
-      padding: 0 20px;
+    :root {
+      --bg: #0b0f14;
+      --panel: rgba(18, 22, 28, 0.92);
+      --panel-border: rgba(252, 238, 9, 0.35);
+      --yellow: #fcee09;
+      --yellow-soft: #d9cc15;
+      --red: #f75049;
+      --cyan: #45f0ff;
+      --text: #f5f7fa;
+      --muted: #97a0aa;
+      --grid: rgba(69, 240, 255, 0.08);
+      --shadow-yellow: 0 0 12px rgba(252, 238, 9, 0.18);
+      --shadow-red: 0 0 10px rgba(247, 80, 73, 0.18);
     }
-    h1, h2 { color: #fcee09; }
-    a { color: #fcee09; }
-    section { margin-bottom: 36px; }
-    .muted { color: #aaaaaa; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        linear-gradient(rgba(11, 15, 20, 0.94), rgba(11, 15, 20, 0.96)),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+        linear-gradient(var(--grid) 1px, transparent 1px);
+      background-size: auto, 30px 30px, 30px 30px;
+      color: var(--text);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.8;
+      min-height: 100%;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(0,0,0,0.08)),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.02) 0px,
+          rgba(255,255,255,0.02) 1px,
+          transparent 2px,
+          transparent 4px
+        );
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 60px;
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(252, 238, 9, 0.08), rgba(247, 80, 73, 0.08));
+      border: 1px solid var(--panel-border);
+      box-shadow: var(--shadow-yellow), inset 0 0 0 1px rgba(255,255,255,0.02);
+      padding: 26px 22px 20px;
+      clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      box-shadow: var(--shadow-red);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--yellow);
+      padding: 4px 10px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1.2;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(252, 238, 9, 0.18);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+
+    .nav a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--yellow);
+      border: 1px solid rgba(252, 238, 9, 0.35);
+      background: rgba(252, 238, 9, 0.05);
+      padding: 8px 14px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(252, 238, 9, 0.12);
+      box-shadow: var(--shadow-yellow);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow:
+        0 0 0 1px rgba(252, 238, 9, 0.06),
+        0 10px 30px rgba(0,0,0,0.35);
+      padding: 22px 20px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110px;
+      height: 2px;
+      background: var(--yellow);
+      box-shadow: var(--shadow-yellow);
+    }
+
+    .lang-title {
+      margin: 0 0 16px;
+      font-size: 24px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      margin: 24px 0 8px;
+      color: var(--red);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .info-box {
+      border-left: 3px solid var(--cyan);
+      background: rgba(69, 240, 255, 0.05);
+      padding: 12px 14px;
+      margin: 14px 0 18px;
+      color: #dffcff;
+    }
+
+    a {
+      color: var(--yellow);
+    }
+
+    a:hover {
+      color: #fff78a;
+    }
+
+    .footer {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(252,238,9,0.35), transparent);
+      margin: 10px 0 6px;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      .hero, .panel {
+        padding: 18px 16px;
+      }
+
+      .lang-title {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy / 隐私政策</h1>
-  <p class="muted">Last updated: November 4, 2026</p>
+  <div class="container">
+    <header class="hero">
+      <div class="tag">FishProtocol // Data Protection Node</div>
+      <h1>Privacy Policy / 隐私政策</h1>
+      <p class="subtitle">Cyberpunk Theme for KLWP · Package: fishprotocol.kustom.pack</p>
+      <p class="subtitle">Last updated: November 4, 2026</p>
+    </header>
 
-  <section>
-    <h2>English</h2>
-    <p>
-      This Privacy Policy applies to Cyberpunk Theme
-      for KLWP (package: fishprotocol.kustom.pack),
-      developed by FishProtocol.
-    </p>
+    <nav class="nav">
+      <a href="#en">English</a>
+      <a href="#zh">简体中文</a>
+    </nav>
 
-    <h2>1. Data Collection</h2>
-    <p>
-      The application provides KLWP theme presets.
-      Subject to verification of the final app and
-      its third-party components, the app does not
-      require account registration or directly
-      request personal information.
-    </p>
+    <section class="panel" id="en">
+      <h2 class="lang-title">English</h2>
 
-    <h2>2. Data Usage and Sharing</h2>
-    <p>
-      Theme resources are used to display and apply
-      the selected wallpaper presets. Any network
-      access or data processing by included
-      third-party components must be disclosed
-      here according to their actual behavior.
-    </p>
+      <div class="info-box">
+        This Privacy Policy applies to <strong>Cyberpunk Theme for KLWP</strong>
+        (package: <strong>fishprotocol.kustom.pack</strong>), developed by <strong>FishProtocol</strong>.
+      </div>
 
-    <h2>3. Third-Party Services</h2>
-    <p>
-      The theme requires KLWP Live Wallpaper and
-      KLWP Pro. These are separate applications
-      governed by their respective privacy policies.
-    </p>
+      <h2>1. Data Collection</h2>
+      <p>
+        This application provides KLWP theme presets. The app does not require account registration
+        and does not directly request personal information from users.
+      </p>
 
-    <h2>4. Data Security and Retention</h2>
-    <p>
-      The developer does not operate a user account
-      or personal-data storage service for this
-      theme, provided no additional collection
-      features have been enabled. Locally stored
-      theme data can generally be removed by
-      clearing application data or uninstalling
-      the application.
-    </p>
+      <h2>2. Data Usage and Sharing</h2>
+      <p>
+        Theme resources are used only to display and apply the selected wallpaper presets.
+        The developer does not sell user data or knowingly share personal information with third parties.
+      </p>
 
-    <h2>5. Changes</h2>
-    <p>
-      This Privacy Policy may be updated when
-      application functionality or data practices change.
-    </p>
+      <h2>3. Third-Party Services</h2>
+      <p>
+        This theme requires <strong>KLWP Live Wallpaper</strong> and <strong>KLWP Pro</strong> to function.
+        These are separate applications and are governed by their own privacy policies.
+      </p>
 
-    <h2>6. Contact</h2>
-    <p>
-      For privacy questions, contact:
-      [YOUR SUPPORT EMAIL]
-    </p>
-  </section>
+      <h2>4. Data Security and Retention</h2>
+      <p>
+        The developer does not operate user accounts or cloud-based personal data storage for this theme.
+        Any locally stored app data can generally be removed by clearing app data or uninstalling the app.
+      </p>
 
-  <section lang="zh-CN">
-    <h2>简体中文</h2>
-    <p>
-      本隐私政策适用于 FishProtocol 开发的
-      Cyberpunk Theme for KLWP，
-      软件包名称为 fishprotocol.kustom.pack。
-    </p>
+      <h2>5. Changes to This Policy</h2>
+      <p>
+        This Privacy Policy may be updated if the app’s functionality or data practices change.
+        Any updates will be reflected on this page.
+      </p>
 
-    <h2>1. 数据收集</h2>
-    <p>
-      本应用用于提供 KLWP 动态壁纸主题预设。
-      在确认最终应用及第三方组件的数据行为后，
-      如未启用额外的数据收集功能，
-      应用无需注册账户，也无需用户直接提供个人信息。
-    </p>
+      <h2>6. Contact</h2>
+      <p>
+        If you have any privacy-related questions, please contact:
+        <a href="mailto:[YOUR SUPPORT EMAIL]">[YOUR SUPPORT EMAIL]</a>
+      </p>
+    </section>
 
-    <h2>2. 数据使用与分享</h2>
-    <p>
-      主题资源用于展示和应用用户选择的壁纸预设。
-      如应用包含联网功能或第三方组件的数据处理行为，
-      将根据实际情况在此说明其数据类型、用途及接收方。
-    </p>
+    <section class="panel" id="zh" lang="zh-CN">
+      <h2 class="lang-title">简体中文</h2>
 
-    <h2>3. 第三方服务</h2>
-    <p>
-      本主题需要搭配 KLWP Live Wallpaper
-      和 KLWP Pro 使用。
-      这些独立应用适用其各自的隐私政策。
-    </p>
+      <div class="info-box">
+        本隐私政策适用于 <strong>FishProtocol</strong> 开发的
+        <strong>Cyberpunk Theme for KLWP</strong>，
+        软件包名称为 <strong>fishprotocol.kustom.pack</strong>。
+      </div>
 
-    <h2>4. 数据安全、保留与删除</h2>
-    <p>
-      如果应用未启用额外数据收集功能，
-      开发者不为本主题提供用户账户或个人数据存储服务。
-      用户通常可以通过清除应用数据或卸载应用，
-      删除保存在设备上的相关主题数据。
-    </p>
+      <h2>1. 数据收集</h2>
+      <p>
+        本应用用于提供 KLWP 动态壁纸主题预设。应用无需注册账户，
+        也不会直接要求用户提供个人信息。
+      </p>
 
-    <h2>5. 政策更新</h2>
-    <p>
-      如应用功能或数据处理方式发生变化，
-      本隐私政策可能相应更新。
-    </p>
+      <h2>2. 数据使用与分享</h2>
+      <p>
+        本应用中的主题资源仅用于展示和应用用户选择的壁纸预设。
+        开发者不会出售用户数据，也不会主动向第三方分享个人信息。
+      </p>
 
-    <h2>6. 联系方式</h2>
-    <p>
-      如有隐私相关问题，请联系：
-      [YOUR SUPPORT EMAIL]
+      <h2>3. 第三方服务</h2>
+      <p>
+        本主题需要配合 <strong>KLWP Live Wallpaper</strong> 和 <strong>KLWP Pro</strong> 使用。
+        这些是独立应用，其数据处理行为适用各自的隐私政策。
+      </p>
+
+      <h2>4. 数据安全、保留与删除</h2>
+      <p>
+        开发者不会为本主题提供用户账户系统，也不会提供云端个人数据存储服务。
+        保存在设备本地的相关数据通常可以通过清除应用数据或卸载应用来删除。
+      </p>
+
+      <h2>5. 政策更新</h2>
+      <p>
+        如果应用功能或数据处理方式发生变化，本隐私政策可能会更新。
+        更新后的内容将发布在本页面中。
+      </p>
+
+      <h2>6. 联系方式</h2>
+      <p>
+        如有任何隐私相关问题，请联系：
+        <a href="mailto:[YOUR SUPPORT EMAIL]">[YOUR SUPPORT EMAIL]</a>
+      </p>
+    </section>
+
+    <div class="divider"></div>
+    <p class="footer">
+      FishProtocol // Cyberpunk Theme for KLWP // Privacy Policy
     </p>
-  </section>
+  </div>
 </body>
 </html>
